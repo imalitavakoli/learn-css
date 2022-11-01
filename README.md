@@ -1788,3 +1788,7 @@ But before we go to learn JavaScript... Do you like to level up your CSS learnin
 * [SASS Language (a CSS Preprocessor)](https://sass-lang.com/)
 * [Scalable & Modular Architecture for CSS (SMACSS) Methodology](http://smacss.com/)
 * [BEM Methodology](https://en.bem.info/methodology/)
+* ["What is UX Design?" tutorial](https://webdesign.tutsplus.com/articles/what-is-ux-design--cms-37111)
+* ["Mobile UI Design for Beginners" tutorial](https://webdesign.tutsplus.com/articles/new-course-mobile-ui-design-for-beginners--cms-25610)
+* ["What is Adobe XD?" tutorial](https://webdesign.tutsplus.com/articles/what-is-adobe-xd--cms-36536)
+* ["How to Create a Banking App Prototype in Adobe XD" tutorial](https://webdesign.tutsplus.com/tutorials/how-to-create-a-banking-app-prototype-in-adobe-xd--cms-93174)
