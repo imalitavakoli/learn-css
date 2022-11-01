@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>11</title>
+    <style>
+      .container {
+        display: flex;                  /* or inline-flex */
+
+        /*
+        row (default): left to right in ltr; right to left in rtl
+        row-reverse: right to left in ltr; left to right in rtl
+        column: same as row but top to bottom
+        column-reverse: same as row-reverse but bottom to top
+        */
+        flex-direction: row;
+
+        flex-wrap: nowrap;              /* nowrap|wrap|wrap-reverse */
+
+        /* Shorthand for flex-direction and flex-wrap properties */
+        /* flex-flow: row wrap; */
+
+        /*
+        This defines the alignment along the main axis.
+
+        Syntax:
+        justify-content: flex-start|flex-end|center|space-between|
+        space-around|space-evenly;
+        */
+        justify-content: flex-start;
+
+        /*
+        This defines the default behavior for how flex items are laid out along
+        the cross axis on the current line. Think of it as the justify-content
+        version for the cross-axis.
+
+        Syntax:
+        align-items: stretch|flex-start|flex-end|center|baseline;
+        */
+        align-items: center;
+
+        /*
+        This property only takes effect on multi-line flexible containers, where
+        flex-wrap is set to either wrap or wrap-reverse.
+
+        Syntax:
+        align-content: flex-start|flex-end|center|space-between|space-around|stretch;
+        */
+        align-content: center;
+
+        min-height: 100vh;
+      }
+
+      .item {
+        padding: 10px;
+        border: 1px solid #a5ccd6;
+        background-color: #cbe7ee;
+        font-size: 24px;
+        text-align: center;
+        box-sizing: border-box;
+      }
+
+      .item-grown {
+        order: -1;                       /* default is 0 */
+
+        /*
+        Specifies the ability for a flex item to grow if necessary. It accepts a
+        unitless value that serves as a proportion. Default is 0. Negative
+        numbers are invalid.
+
+        Here in our example, the element has a value of 2. It means that it
+        would take up twice as much of the space either one of the other items
+        (or it will try, at least).
+        */
+        flex-grow: 2;
+
+        /*
+        Specifies the ability for a flex item to shrink if necessary. It accepts
+        a unitless value that serves as a proportion. Default is 1. Negative
+        numbers are invalid.
+        */
+        flex-shrink: 1;
+
+        /*
+        Specifies the default size of the item. Default is auto. It accepts a
+        length unit, or percentage.
+        */
+        flex-basis: 300px;
+
+        /* Shorthand for flex-grow, flex-shrink, and flex-basis properties */
+        /* flex: 2 1 300px; */
+
+        align-self: stretch;             /* auto|flex-start|flex-end|center|baseline|stretch */
+      }
+    </style>
+  </head>
+  <body>
+
+    <section class="container">
+      <div class="item">01</div>
+      <div class="item item-grown">02</div>
+      <div class="item">03</div>
+      <div class="item">04</div>
+    </section>
+
+  </body>
+</html>

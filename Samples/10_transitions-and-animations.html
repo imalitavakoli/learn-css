@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>10</title>
+    <style>
+      .box1 {
+        width:200px;
+        padding: 20px;
+      	background-color: #ffc90e;
+        text-align: center;
+        transform-origin: top left;
+
+        border-radius: 10px;
+        transform: scale(1, 1);
+
+        /*
+        The transition property is a shorthand property for:
+        transition-property, transition-duration, transition-timing-function, transition-delay.
+        */
+        transition: transform .5s, border-radius 2s;
+
+        /*
+      	Syntax:
+      	transition-timing-function: linear|ease|ease-in|ease-out|ease-in-out|
+        step-start|step-end|steps(int,start|end)|cubic-bezier(n,n,n,n)|initial|inherit;
+
+        NOTE: Test common easing curves on a range of interfaces, or generate
+        your own custom bezier curve, check out here: https://easings.co/
+      	*/
+        transition-timing-function: ease;
+
+        transition-delay: 0s;
+
+        /* transition: transform 1s ease 0s; */
+      }
+
+      .box1:hover {
+        border-radius: 0;
+        transform: scale(1.1, 1.1);
+      }
+
+      @keyframes myAni {
+        from {
+          background-color: #ffc90e;
+        }
+        50% {
+          background-color: #bcd6ec;
+        }
+        to {
+          background-color: #eeeeee;
+        }
+      }
+
+      .box2 {
+        /*
+        The animation property is a shorthand property for: animation-name,
+        animation-duration, animation-timing-function, animation-delay,
+        animation-iteration-count, animation-direction, animation-fill-mode,
+        animation-play-state.
+        */
+        animation: myAni 1s;
+
+        /*
+      	Syntax:
+      	animation-timing-function: linear|ease|ease-in|ease-out|ease-in-out|
+        step-start|step-end|steps(int,start|end)|cubic-bezier(n,n,n,n)|initial|inherit;
+      	*/
+        animation-timing-function: ease;
+
+        /* Specifies a delay for the start of an animation. */
+        animation-delay: 0s;
+
+        /* Specifies the number of times an animation should be played. */
+        animation-iteration-count: infinite;
+
+        /*
+        Defines whether an animation should be played forwards, backwards or in
+        alternate cycles.
+
+        Syntax:
+        animation-direction: normal|reverse|alternate|alternate-reverse|initial|inherit;
+        */
+        animation-direction: alternate;
+
+        /*
+        Specifies a style for the element when the animation is not playing
+        (before it starts, after it ends, or both).
+
+        Syntax:
+        animation-fill-mode: none|forwards|backwards|both|initial|inherit;
+        */
+        animation-fill-mode: none;
+
+        /*
+        Specifies whether the animation is running or paused.
+
+        Syntax:
+        animation-play-state: paused|running|initial|inherit;
+        */
+        animation-play-state: running;
+      }
+    </style>
+  </head>
+  <body>
+
+    <div class="box1">
+      I grow on hover :)
+    </div>
+
+    <div class="box2">
+      I am animated :)
+    </div>
+
+  </body>
+</html>

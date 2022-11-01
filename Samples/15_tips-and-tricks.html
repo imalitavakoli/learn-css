@@ -1,0 +1,368 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>15</title>
+    <style>
+      /* ///////////////////////////////////// rem units */
+
+      html {
+        font-size: 16px;                /* rem units are based on the font-size of the html element. */
+      }
+
+      div.a {
+        /*
+        It's the best practice to use rem instead of em units in most of the
+        times, when we like to define font sizes, margin, padding spaces, or
+        positioning an element.
+        By doing so, we're defining the properties' values according to the
+        base-font-size, not the parent element's font-size! This simple fact,
+        avoids complex conflicts later... Specially in large projects that a
+        team is working on different style sheets.
+        */
+        margin: 1.2rem;
+        padding: 2rem;
+
+        border: 2px solid;
+        border-color: red;
+        background-color: #c4d5e9;
+      }
+
+
+      /* ///////////////////////////////////// text/element center positioning */
+
+      .b {
+        margin: 0 auto;                 /* Simple way to put an element at center */
+        width: 100px;
+        background-color: lightblue;
+        text-align: center;             /* text align at center */
+      }
+
+
+      /* ///////////////////////////////////// Positioning best practices */
+
+      .box {
+        position: relative;
+        width: 200px;
+        background-color: #ccc;
+      }
+
+      /*
+      For positioning purposes, it's the best practice to not to change the
+      element's padding or margin. Instead use top, right, bottom, or left properties.
+
+      Difference between fixed and absolute position?
+      Well, by fixed positioning, the element is positioned relative to the
+      browser window. By absolute positioning, the element is positioned
+      relative to its first positioned (not static) ancestor element.
+
+      As you can see in our example here, the .b element's container is the .box
+      element. And .box is positioned by relative... So when .b which is the
+      .box child, gets absolute position, it acts just like a fixed positioned
+      element, but not relative to the browser window! It is relatively
+      positioned to the .box element.
+      */
+      .c {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        background-color: #aaa;
+      }
+
+
+      /* ///////////////////////////////////// important flag */
+
+      @media (min-width: 576px) {
+        /*
+        When to use the important flag? Well, sometimes you need to override a
+        style somewhere else (here we're re-styling .a when viewport is wider
+        than 576px), but it doesn't work! Because you have addressed your target
+        element more specifically previously! So to make the re-styling work,
+        you can either address your target element more specifically than
+        before, or use the important flag.
+
+        Here in our example, we already have addressed our target element by
+        mentioning its element name AND its class name (div.a), but now that we
+        like to override some of its styles, we addressed it by ONLY mentioning
+        its class name (.a)! So in order to make the re-styling work, we need to
+        either address the target element at least as specific as before
+        (div.a) or like what we did here, use the important flag.
+
+        NOTE: It's the best practice to use the important flag, as less as
+        possible! So here we just wanted to show you how to use the important
+        flag for the sake of an example, but it is not recommended! So just try
+        to use the important flag as the final solution when overriding some
+        CSS rules, when other solutions won't work!
+        */
+        .a {
+          border-color: blue !important;
+        }
+      }
+
+
+      /* ///////////////////////////////////// width vs max-width */
+
+      /*
+      It's the best practice to use max-width property when setting the width of
+      your container element (which is an element that contains most of your
+      webpage's content). Why? Because max-width sets a maximum width and also
+      decreases if needed in smaller viewports.
+
+      NOTE: In CSS width has higher priority than max-width. So if you have
+      ever, set a fixed width value for an element, and like to replace it by
+      max-width in a media query to let CSS decrease the width of the element
+      automatically as required... First set width to auto, and then define the
+      value of your max-width property. In this way, CSS reads the max-width
+      property's value, and not the value of width property.
+      */
+      .container {
+        margin: 0 auto;
+        max-width: 100%;
+      }
+      @media (min-width: 576px) {
+        .container {
+          max-width: 540px;
+        }
+      }
+      @media (min-width: 768px) {
+        .container {
+          max-width: 720px;
+        }
+      }
+      @media (min-width: 992px) {
+        .container {
+          max-width: 960px;
+        }
+      }
+      @media (min-width: 1200px) {
+        .container {
+          max-width: 1140px;
+        }
+      }
+
+
+      /* ///////////////////////////////////// clearfix hack */
+
+      /*
+      There's a known issue in CSS that will be fixed by a known solution that
+      is called clearfix! If all of the children of an element are floated
+      to left or right, th background of the element disappears! Or if a
+      floating element is taller than the containing element, it will overflow
+      outside its container.
+      To fix such issues, you can add the clearfix CSS rules to the element.
+      Here in our example, we have defined the clearfix solution CSS rules for
+      the .clearfix selector, and set .clearfix class for our ul element.
+      If you remove this class from the ul element, you will see that its background color will disappear!
+      */
+      ul {
+        list-style-type: square;
+        list-style-position: inside;
+        margin: 0;
+        padding: 0;
+        background-color: #aed3f0;
+      }
+      ul > li {
+        /*
+        Specifies whether an element should float to the left, right, or not at all.
+
+        NOTE: Absolutely positioned elements ignore the float property!
+        */
+        float: left;
+
+        margin-left: 1rem;
+      }
+
+      .clearfix::after {
+        content: '';
+        clear: both;
+        display: table;
+      }
+
+
+      /* ///////////////////////////////////// Smoother transitions & animations */
+
+      @keyframes anibox {
+        from { background-color: #f0bbc8; }
+        20% { background-color: #cfbbf0; }
+        40% { background-color: #bbcbf0; }
+        60% { background-color: #bbf0db; }
+        80% { background-color: #f0eabb; }
+        to { background-color: #f0c6bb; }
+      }
+
+      .anibox {
+        padding: 1rem;
+        width: 100%;
+        height: 100px;
+        text-align: center;
+        animation: anibox 5s ease 0s infinite alternate;
+        transition: all .5s cubic-bezier(0.86,0,0.07,1);
+
+        /*
+        Properties that don't trigger repaints, can help us create extremely
+        smooth animations on the web by increasing the performance. To do so, we
+        should let the browser know to do some tasks on our GPU, and let the CPU
+        handle other things. So we need to get hardware acceleration on our CSS
+        transitions & animations. Defining one of the following CSS rules for
+        our element (not all are necessary, only one is enough) will get
+        hardware acceleration: `perspective: 1000px;`,
+        `backface-visibility: hidden;`, `transform: translateZ(0.1);`
+
+        Here in our example, as you can see we have set
+        `backface-visibility: hidden;` CSS rule for our animated element. Well,
+        you may not see any obvious results here because our animation is
+        simple. But this solution can make huge difference in complex CSS animations.
+        */
+        backface-visibility: hidden;
+
+        /*
+        If you like to use the transform property to translate() or scale() your
+        element, you may see that the texts inside the element may not look
+        accurate while the animation is running! In order to avoid such jaggy
+        animation, we need to define the will-change CSS property for our
+        element and set its value, the CSS property that is causing the element
+        to animate! (in our case it's the transform CSS property)
+
+        The will-change propery improves the animation performance by letting
+        the browser to be already prepared for changing a CSS property (the
+        propery that is defined as the value of the will-change)
+        */
+        will-change: transform;
+      }
+
+      .anibox:hover {
+        transform: scale(.95);
+      }
+
+
+      /* ///////////////////////////////////// Browser supports */
+
+      .hero {
+        width: 100%;
+        padding: 2rem;
+        background: url('hero.jpg') center/cover no-repeat scroll;
+      }
+
+      .glassy {
+        padding: 2rem;
+        border-radius: 8px;
+        background-color: rgba(51, 51, 51, 0.8);
+        color: #fff;
+      }
+
+      /*
+      We can test if the browser supports a particular property or
+      property:value combination or not. e.g., `@supports (display: grid) { .a { display: grid; } }`
+      */
+      @supports ((-webkit-backdrop-filter: none) or (backdrop-filter: none)) {
+        .glassy {
+          background-color: rgba(51, 51, 51, 0.1);
+          -webkit-backdrop-filter: blur(10px); /* What is it? Webkit vendor prefix! It's just a way to let browsers support new CSS features early. */
+          backdrop-filter: blur(10px);
+        }
+      }
+
+
+      /* ///////////////////////////////////// Some normalizations */
+
+      *,
+      *::before,
+      *::after {
+        /*
+        The box-sizing property defines how the width and height of an element
+        are calculated: Should they include padding and borders, or not.
+        The default value of box-sizing property is content-box. But here we
+        changed it to border-box so that the elements' width is not affected by
+        padding or border.
+        */
+        box-sizing: border-box;
+      }
+
+      /*
+      The ::selection selector matches the portion of an element that is
+      selected by a user.
+      Only a few CSS properties can be applied to the ::selection selector:
+      color, background, cursor, and outline.
+      */
+      ::selection {
+        background: #d6edff;
+        text-shadow: none;
+        color: #000;
+      }
+
+      html {
+        overflow-y: scroll;             /* Always show the vertical scrollbar. */
+      }
+
+      body {
+      	-webkit-font-smoothing: antialiased; /* Makes fonts smooth and beautiful. */
+      }
+
+      input,
+      textarea,
+      select {
+        /* This removes the thick halo that some browsers add to the form fields when they are focused. */
+        outline: none;
+      }
+
+      h1, h2, h3, h4, h5, h6 {
+        /* It's good to have a bottom margin for our headings most of the times. */
+        margin-bottom: 1.5rem;
+      }
+
+      p {
+        /* In most of the designs, we need to seperate the paragraphs visually. */
+        margin-bottom: 1.5rem;
+      }
+
+      a {
+        color: orange;
+        text-decoration: none;
+      }
+      a:hover {
+        /* A simple trick to customize the underline of the hyperlinks. */
+        border-bottom: 1px dotted;
+      }
+    </style>
+  </head>
+  <body>
+
+    <div class="a">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
+
+    <div class="b">I am standing at the center horizontally.</div>
+
+    <div class="box">
+      <div class="c">I am absolute positioned element.</div>
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.
+    </div>
+
+    <hr>
+
+    <section class="container">
+      <p>Lorem ipsum dolor sit amet, <a href="#">consectetur adipisicing</a> elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    </section>
+
+    <hr>
+
+    <ul class="clearfix">
+      <li>List Item 01</li>
+      <li>List Item 02</li>
+      <li>List Item 03</li>
+    </ul>
+
+    <hr>
+
+    <div class="anibox">
+      Animated box :)
+    </div>
+
+    <hr>
+
+    <section class="hero">
+      <div class="glassy">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+      </div>
+    </section>
+
+  </body>
+</html>

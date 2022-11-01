@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>07</title>
+
+    <style>
+      /* ///////////////////////////////////// Positioning related styles */
+
+      .toast {
+        /*
+        Specifies the type of positioning method used for an element. (static,
+        relative, absolute, fixed, or sticky)
+        */
+        position: fixed;
+
+        /* The top/bottom property affects the vertical position of a positioned element. */
+        top: 5px;
+
+        /* The left/right property affects the horizontal position of a positioned element. */
+        right: 5px;
+      }
+
+
+      /* ///////////////////////////////////// Displaying related styles */
+
+      #nav li {
+        /* Specifies the display behavior (the type of rendering box) of an element. */
+        display: inline;
+      }
+      #nav li:last-child {
+        /*
+        Specifies whether or not an element is visible. Hidden elements take up
+        space on the page. Use the display property to both hide and remove an
+        element from the document layout!
+        */
+        visibility: hidden;
+      }
+    </style>
+
+  </head>
+  <body>
+
+    <div class="toast" style="padding: 5px; background-color: lightblue;">
+      This is a fixed positioned box.
+    </div>
+
+    <ul id="nav">
+      <li><a href="#">Home</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Contact</a></li>
+      <li><a href="#">Something else</a></li>
+    </ul>
+
+  </body>
+</html>

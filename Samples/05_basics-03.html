@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>05</title>
+
+    <style>
+      /* ///////////////////////////////////// List related styles */
+
+      ul {
+        list-style-type: circle;
+      }
+      ol {
+        list-style-type: lower-alpha;
+      }
+
+      .list-custom {
+        margin: 0px;
+      	padding: 0px;
+        list-style-type: none;
+      }
+      .list-custom li {
+        margin: 4px 0;
+      	padding-left: 40px;
+      	padding-top: 7px;
+      	padding-bottom: 7px;
+        background-image: url("list-custom.png");
+      	background-repeat: no-repeat;
+      	background-position: 0px 0px;
+      }
+
+
+      /* ///////////////////////////////////// Table related styles */
+
+      table {
+        /*
+        Sets whether table borders should collapse into a single border or be
+        separated as in standard HTML.
+        */
+        border-collapse: collapse;
+      }
+      table, td, th {
+        padding: 5px;
+      	border: 2px dotted #FF99CC;
+        text-align: center;
+      	vertical-align: middle;
+      }
+      thead th {
+        background-color: #FFCCFF;
+      }
+      tr.table-alt {
+        background-color: #CCFFFF;
+      }
+      table caption {
+        caption-side: bottom;
+        padding: 5px;
+        text-align:right;
+      	vertical-align: middle;
+      }
+    </style>
+
+  </head>
+  <body>
+
+    <ul class="list-custom">
+      <li>List Item 01</li>
+      <li>List Item 02</li>
+      <li>List Item 03</li>
+    </ul>
+
+    <table>
+      <caption>Table Caption</caption>
+      <thead>
+        <th>Table Head 01</th>
+        <th>Table Head 02</th>
+      </thead>
+      <tbody>
+      <tr>
+        <td>Data 01</td>
+        <td>Data 02</td>
+      </tr>
+      <tr class="table-alt">
+        <td>Data 01</td>
+        <td>Data 02</td>
+      </tr>
+      <tr>
+        <td>Data 01</td>
+        <td>Data 02</td>
+      </tr>
+      <tr class="table-alt">
+        <td>Data 01</td>
+        <td>Data 02</td>
+      </tr>
+      </tbody>
+      <tfoot>
+        <td colspan="2">My footer</td>
+      </tfoot>
+    </table>
+
+  </body>
+</html>

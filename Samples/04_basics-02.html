@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>04</title>
+
+    <style>
+      /* ///////////////////////////////////// Text related styles */
+
+      p {
+        color:#333333;
+      	text-align: center;
+      	text-decoration: none;
+
+        /*
+        NOTE: The inherit keyword specifies that a property should inherit its
+        value from its parent element. The inherit keyword can be used for any
+        CSS property, and on any HTML element.
+        */
+      	text-transform: inherit;
+
+        /* Indent the first line of text. e.g., 20px, -1rem, 5%. */
+      	text-indent: 20px;
+
+        /* The default line height in most browsers is about 110% to 120%. */
+      	line-height: 1.2;
+
+      	word-spacing: normal;
+      	white-space: normal;
+      	letter-spacing: 3px;
+        direction: ltr;
+
+        /*
+        Specifies whether or not the browser can break lines with long words, if
+        they overflow the container.
+        */
+        overflow-wrap: anywhere;
+
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 1rem;
+        font-style: normal;
+      	font-weight: normal;
+
+        /* Specifies whether or not a text should be displayed in a small-caps font. */
+      	font-variant: normal;
+
+      	/*
+      	Syntax:
+      	text-shadow: h-shadow v-shadow blur-radius color|none|initial|inherit;
+      	NOTE: To add more than one shadow to the text, add a comma-separated list of shadows.
+      	*/
+      	text-shadow: 2px -2px 5px rgba(51, 51, 51, 0.5);
+      }
+      .serif {
+        font-family:"Times New Roman", Times, serif;
+      }
+      .monospace {
+        font-family:"Courier New", Courier, monospace;
+      }
+
+      /*
+      With the @font-face rule, we do not have to use one of the "web-safe"
+      fonts anymore.
+      To use the font for an HTML element, we can refer to the name of the font
+      through the font-family property: div { font-family: myCustomFont; }
+      */
+      @font-face
+      {
+        font-family: myCustomFont;
+        src: url(path/to/font.ttf);
+      }
+
+      /*
+      We must add another @font-face rule containing descriptors for bold text.
+      Browsers will use "font-bold.ttf" font whenever a piece of text with the
+      font-family "myCustomFont" should render as bold.
+
+      NOTE: The following font descriptors can be defined inside the @font-face
+      rule: font-family, src, font-stretch, font-style, font-weight, unicode-range
+      */
+      @font-face
+      {
+        font-family: myCustomFont;
+        src: url(path/to/font-bold.ttf);
+        font-weight: bold;
+      }
+
+
+      /* ///////////////////////////////////// Link related styles */
+
+      a:link,                         /* a:link - a normal, unvisited link */
+      a:visited,                      /* a:visited - a link the user has visited */
+      a:active {                      /* a:active - a link the moment it is clicked */
+      	color: #FF6600;
+      	text-decoration: none;
+      }
+      a:hover {                       /* a:hover - a link when the user mouses over it */
+      	text-decoration:underline;
+      }
+    </style>
+
+  </head>
+  <body>
+
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      <a href="#">A sample link</a>.
+    </p>
+    <pre class="monospace">Sample preformatted text.</pre>
+
+  </body>
+</html>

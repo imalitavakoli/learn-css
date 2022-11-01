@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>06</title>
+
+    <style>
+      /* ///////////////////////////////////// Outline related styles */
+
+      .box {
+        /*
+        An outline is a line that is drawn around elements, outside the borders,
+        to make the element "stand out".
+
+        The outline property is a shorthand property for: outline-width,
+        outline-style (required), outline-color.
+
+        Syntax:
+      	outline: outline-width outline-style outline-color|initial|inherit;
+      	*/
+      	outline: thick dotted blue;
+
+        /* outline-width: thick;
+        outline-style: solid;
+        outline-color: blue; */
+      }
+
+
+      /* ///////////////////////////////////// Border related styles */
+
+      .box {
+      	border: 5px solid red;
+        border-radius: 15px;          /* Defines the radius of the element's corners. */
+
+        /* NOTE: Each of the borders (top, right, bottom, and left) can also be styled differently. */
+        border-bottom-color: green;
+
+        /* border-width: 5px;
+        border-style: solid;
+        border-color: red; */
+      }
+
+
+      /* ///////////////////////////////////// Background related styles */
+
+      .box {
+        /*
+        RGBA color value is RGB color value but with an alpha channel which
+        specifies the opacity for a color.
+        */
+        background-color: rgba(255, 0, 0, .5);
+
+        background-image: url('hero.jpg');
+      	background-repeat: no-repeat;
+
+        /* Specifies whether the background image should scroll or be fixed. */
+        background-attachment: scroll;
+
+      	background-position: top right;
+
+        /* Specifies the size of the background images */
+        background-size: cover;
+
+        /* background: rgba(255, 0, 0, .5) url('hero.jpg') no-repeat scroll top right; */
+
+        /*
+      	Syntax:
+      	box-shadow: none|h-offset v-offset blur spread color |inset|initial|inherit;
+
+      	NOTE: To attach more than one shadow to an element, add a comma-separated list of shadows
+      	*/
+      	box-shadow: 2px -2px 5px rgba(51, 51, 51, 0.5);
+      }
+
+      body {
+        background-attachment: fixed;
+
+        /*
+        CSS gradients let you display smooth transitions between two or more specified colors.
+
+      	Syntax:
+      	background-image: linear-gradient(direction, color-stop1, color-stop2, ...);
+      	*/
+        background-image: linear-gradient(to bottom right, yellow, rgba(255,0,0,1));
+        /* background-image: linear-gradient(135deg, yellow, rgba(255,0,0,1)); */
+
+        /* The repeating function is used to repeat gradients: */
+        /* background-image: repeating-linear-gradient(135deg, yellow 10%, red 20%); */
+
+        /*
+        A radial gradient with differently spaced color stops.
+        The size parameter defines the size of the gradient. It can take four
+        values: closest-side, farthest-side, closest-corner, farthest-corner.
+        */
+        /* background-image: radial-gradient(farthest-corner at 90% 10%, red 60%, yellow 95%); */
+        /* background-image: repeating-radial-gradient(red 60%, yellow 95%); */
+
+        /*
+        A conic gradient is a gradient with color transitions rotated around a
+        center point.
+        */
+        /* background-image: conic-gradient(#fff4c6 0deg 90deg, #ffdf5b 90deg 180deg, #fff4c6 180deg 270deg, #ffdf5b 270deg); */
+        /* background-image: repeating-conic-gradient(#fff4c6 0deg 10deg, #ffdf5b 10deg 20deg); */
+      }
+
+
+      /* ///////////////////////////////////// Box model related styles */
+
+      .box {
+        /*
+        The margin property sets the margins for an element.
+        The margin property is a shorthand property for: margin-top,
+        margin-right, margin-bottom, margin-left
+
+        The margin property can have four values: [top] [right] [bottom] [left]
+        The margin property can have three values: [top] [right & left] [bottom]
+        The margin property can have two values: [top & bottom] [right & left]
+        The margin property can have one value: [all four sides]
+        In our example here, all four margins are 10px.
+
+        NOTE: Negative values are allowed.
+        */
+        margin: 10px;
+
+        /*
+        An element's padding is the space between its content and its border.
+        The padding property is a shorthand property for: padding-top,
+        padding-right, padding-bottom, padding-left
+
+        Padding property like margin property can also have four, three, two, or
+        one values. In our example here, all four paddings are 10px.
+
+        NOTE: Padding creates extra space within an element, while margin
+        creates extra space around an element.
+
+        NOTE: Negative values are not allowed.
+        */
+        padding:10px;
+
+        width:250px;
+        max-height: 100px;
+
+        /*
+        Specifies whether to clip the content, add a scroll bar, or display
+        overflow content of a block-level element, when it overflows at the top
+        and bottom edges.
+
+        TIP: Use the overflow-x property to determine clipping at the left and right edges.
+        */
+        overflow-y: auto;
+      }
+    </style>
+
+  </head>
+  <body>
+
+    <p class="box" style="color: white;">
+      Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Nam cursus. Morbi ut mi. Nullam enim leo, egestas id, condimentum at, laoreet mattis, massa. Sed eleifend nonummy diam.
+    </p>
+
+  </body>
+</html>

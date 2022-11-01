@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>03</title>
+
+    <style>
+      /*
+      The following CSS rules are going to be aplied to ALL elements and their
+      ::before and ::after pseudo-elements.
+      */
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+
+      /* The following CSS rules are going to be aplied ONLY to the body element. */
+      body {
+        background-color:#333333;
+        color: #ffffff;
+      }
+
+      /* The following CSS rules are going to be aplied to h1, h2, h3, h4, h5, h6 elements. */
+      h1, h2, h3, h4, h5, h6 {
+        text-transform: uppercase;
+      }
+
+      /*
+      The following CSS rules are going to be aplied ONLY to an element which
+      its id attribute is "specificElement".
+      */
+      #specificElement {
+        font-size: 2.5rem;
+        color: pink;
+      }
+
+      /*
+      The following CSS rules are going to be aplied ONLY to any element which
+      its class attribute includes "someElements".
+      */
+      .someElements {
+        text-decoration: underline;
+      }
+      .color-yellow {
+        color: yellow;
+      }
+
+      /*
+      The following CSS rules are going to be aplied ONLY to any span element
+      which its class attribute includes "boldish" AND is the direct or indirect
+      child of any p element.
+      */
+      p span.boldish {
+        font-weight: bold;
+      }
+    </style>
+
+  </head>
+  <body>
+
+    <h1 id="specificElement">Heading</h1>
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id <a href="#" class="someElements">est laborum</a>.
+    </p>
+
+    <!--
+    The HTML class attribute is used to specify a class for an HTML element.
+    The class attribute is often used to point to a class name in a style sheet.
+    (It can also be used by a JavaScript to access and manipulate elements with
+    the specific class name)
+
+    NOTE: The class name is case sensitive!
+
+    TIP: To define multiple classes, separate the class names with a space,
+    e.g., <div class="city main">. The element will be styled according to all
+    the classes specified.
+    -->
+    <p class="someElements color-yellow">
+      Here is the second <span class="boldish">paragraph</span>.
+    </p>
+
+  </body>
+</html>

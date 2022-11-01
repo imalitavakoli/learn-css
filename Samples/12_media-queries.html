@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>12</title>
+    <style>
+      .b {
+        color: red;
+      }
+
+      .c {
+        width: 100px;
+        background-color: lightblue;
+      }
+
+      .d {
+        color: #333333;
+        background-color: #cccccc;
+      }
+
+
+      @media (min-width: 576px) {
+        .a {
+          display: none;
+        }
+      }
+
+      @media (min-width: 768px) {
+        .b {
+          color: blue;
+        }
+      }
+
+      /*
+      The following CSS rules will only apply on screens when the browser window
+      is wider than its height, a so called "Landscape" orientation.
+      */
+      @media screen and (orientation: landscape) {
+        .c {
+          width: 100%;
+        }
+      }
+
+      /*
+      The following CSS rules will only apply on print. I mean when the document
+      is printed.
+      */
+      @media print {
+        .d {
+          color: #000000;
+          background-color: #ffffff;
+        }
+      }
+
+      /*
+      NOTE: Comma separated list, behave like an OR operator.
+      So as an example, the following CSS rules will only apply when the width
+      is between 100px and 200px OR above 576px.
+      */
+      @media (max-width: 200px) and (min-width: 100px), (min-width: 576px) {
+        .e {
+          display: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+
+    <div class="a">I am hidden in a viewport wider than 576px.</div>
+    <div class="b">I am blue in a viewport wider than 768px.</div>
+    <div class="c">I am viewed with a 100% width when the browser window is wider than its height, a so called "Landscape" orientation.</div>
+    <div class="d">I am in pure black & white colors ONLY when I'm going to be printed.</div>
+    <div class="e">I am hidden in a viewport is between 100px and 200px OR above 576px.</div>
+
+  </body>
+</html>

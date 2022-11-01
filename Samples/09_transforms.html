@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>09</title>
+    <style>
+      .container {
+        width:200px;
+        padding: 20px;
+        border-radius: 10px;
+      	background-color: #ffc90e;
+
+        transform: rotate(10deg) translate(50px, 100px) scale(1.1, 1.1);
+
+        /* Allows you to change the position of transformed element. */
+        transform-origin: 50% 50%;
+
+        /*
+        Specifies how nested elements are rendered in 3D space.
+        preserve-3d value specifies that child elements will preserve their 3D
+        position according to their parent. e.g., if the parent has
+        `transform: rotateY(60deg);` rule, then the child element respects its
+        parent element's 3D transformation.
+        */
+        transform-style: preserve-3d;
+      }
+    </style>
+  </head>
+  <body>
+
+    <div class="container">
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+    </div>
+
+  </body>
+</html>

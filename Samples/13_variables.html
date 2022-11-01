@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>13</title>
+    <style>
+      :root {
+        --bluish: #6199da;
+        --space: 1rem;
+      }
+
+      .theme-night {
+        --bluish: #534c7e;
+      }
+
+      .heading {
+        color: var(--bluish);
+      }
+
+      .card {
+        --curve: 4px;                    /* This is a local variable only for the .card elements. */
+
+        /* If we also re-declare a global variable, it will be overridden. */
+        /* --space: 3rem; */
+
+        /*
+        The calc() function performs a calculation to be used as the property value.
+        It works like a charm with CSS variables :)
+        */
+        margin: calc(var(--space) * 2);
+
+
+        padding: var(--space);
+        border-radius: var(--curve);
+        background-color: var(--bluish);
+        color: #fff;
+      }
+    </style>
+  </head>
+  <body>
+
+    <h1 class="heading">Hello World!</h1>
+    <p>This is our sample document.</p>
+
+    <!--
+    We have re-declared the --bluish variable in the .theme-night CSS class, and
+    used for our <section> element here. Now as you can see, the
+    background-color of the .card element is changed to the new overridden value
+    (because it is the descending child of the <section> element), while the
+    color of the above .heading element has remained unchanged since we have
+    declared the --bluish variable inside the :root selector.
+    -->
+    <section class="theme-night">
+      <div class="card">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+      </div>
+    </section>
+
+  </body>
+</html>
