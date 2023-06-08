@@ -27,13 +27,30 @@ Any sample codes that I write here in this tutorial, can be found in the "*Sampl
 
 
 
-# What is CSS?
+# Table of contents to learn
+- [What is CSS?](#what-is-css)
+- [Basics](#basics)
+- [Columns](#columns)
+- [Transforms](#transforms)
+- [Transitions & animations](#transitions--animations)
+- [Flexbox](#flexbox)
+- [Media Queries](#media-queries)
+- [Custom Properties (Variables)](#custom-properties-variables)
+- [Import](#import)
+- [Tips & Tricks](#tips--tricks)
+- [Scalable & Modular Architecture for CSS (SMACSS) Methodology](#scalable--modular-architecture-for-css-smacss-methodology)
+- [BEM Methodology](#bem-methodology)
+
+
+
+
+## What is CSS?
 CSS stands for "*Cascading Style Sheets*". It describes how HTML elements are to be displayed on screen, paper, or in other media. CSS saves a lot of work. It can control the layout of multiple webpages all at once.
 
 Imagine a human body... **CSS is the skin**! (You can imagine CSS as the clothes and makeup you wear too) It styles webpages and beautify HTML documents. CSS is actually used to define styles for webpages' layout and variations in display for different devices and screen sizes.
 
 
-## How to produce CSS?
+### How to produce CSS?
 CSS can be written inside HTML documents themselves (as an internal CSS or inline CSS), or in a separate file which multiple HTML documents can use (external CSS).
 
 Here's how to write CSS inside an HTML document:
@@ -47,12 +64,12 @@ Here's how to write CSS in a seperate file (**external CSS**):
 **What style will be used when there is more than one style specified for an HTML element?** Well, All the styles in a page will "cascade" into a new "virtual" style sheet by the following rules, where number one has the highest priority: 1.Inline style (inside an HTML element) 2.External and internal style sheets (in the head section) 3.Browser default. So, an inline style has the highest priority, and will override external and internal styles and browser defaults.
 
 
-## CSS syntax?
+### CSS syntax?
 A CSS rule consists of a *selector* and a *declaration block*: `selector { property:value; }`. e.g., `p { color: red; }`.  
 The selector points to the HTML element you want to style. The declaration block is surrounded by curly braces, and contains one or more declarations separated by semicolons. Each declaration includes a CSS property name and a value, separated by a colon.
 
 
-## A sample that uses an external CSS?
+### A sample that uses an external CSS?
 Here you can see a simple HTML document that includes a reference to an external style sheet file.
 
 **NOTE:** In my sample codes, I try to quickly explain some definitions by placing comments among the codes.
@@ -94,7 +111,7 @@ p {
 ```
 
 
-## A sample that uses an internal CSS?
+### A sample that uses an internal CSS?
 Here you can see a simple HTML document that includes some CSS rules within the `<style>` element, inside the `<head>` section of the page.
 
 ```html
@@ -126,7 +143,7 @@ Here you can see a simple HTML document that includes some CSS rules within the 
 ```
 
 
-## CSS selectors?
+### CSS selectors?
 CSS selectors are used to find (or select) the HTML elements you want to style.
 CSS selectors can be divided into five categories:
 - Simple selectors (select elements based on name, id, class)  
@@ -151,7 +168,7 @@ Or select all elements with a class attribute value that contains "ye": `[class*
 
 
 
-# Basics
+## Basics
 In my sample code below, we're going to see different ways of styling HTML elements in practice.
 
 ```html
@@ -709,7 +726,7 @@ In my sample code below, we're going to see some of the most frequently used CSS
 
 
 
-# Columns
+## Columns
 Here I introduce some of the column related CSS rules. With column rules you can create multiple columns for laying out texts. (like in newspaper)
 
 ```html
@@ -752,7 +769,7 @@ Here I introduce some of the column related CSS rules. With column rules you can
 
 
 
-# Transforms
+## Transforms
 Here I introduce some of the transform related CSS rules. The transform property applies a 2D or 3D transformation to an element. This property allows you to rotate, scale, move, skew, etc., elements.
 
 ```html
@@ -799,7 +816,7 @@ Here I introduce some of the transform related CSS rules. The transform property
 
 
 
-# Transitions & animations
+## Transitions & animations
 Here I introduce some of the transition and animation related CSS rules.
 
 **CSS transitions** allows you to change property values smoothly, over a given duration.  
@@ -938,7 +955,7 @@ To do this, you must specify two things:
 
 
 
-# Flexbox
+## Flexbox
 Here I introduce you to the Flexbox! **The Flexible Box Layout Module, makes it easier to design flexible responsive layout structure** without using float or positioning. Before the flexbox, designers had tough times centering text/element at the middle/bottom of the webpage or another element! But with the flexbox, everything got so much easier!
 
 **The Flexbox model consists of a container and its items** (direct children).
@@ -1060,7 +1077,7 @@ The **items define how they themselves should be shown** inside of their contain
 ```
 
 
-# Media Queries
+## Media Queries
 Here I introduce you to media queries! They help us apply different styles for different media types/devices. In simple terms, they actually help us design a responsive webpage that is beautifully viewed in mobile, tablet, and desktop devices. As an example, we can set some CSS rules to beautify our webpage when viewed in mobile devices, and then use media queries to override some of those rules when our webpage is viewed in desktop devices! In this way the contents of our webpage is beautifully fit in both devices, and we call such a webpage, a responsive webpage. So anyway, in order to use media queries we need to define a `@media` rule.
 
 The syntax of `@media` rule: `@media not|only mediatype and (expressions) { CSS-Code; }`  
@@ -1157,7 +1174,7 @@ e.g., `@media screen and (min-width: 576px) { .logo { display: block; } }`
 
 
 
-# Custom Properties (Variables)
+## Custom Properties (Variables)
 Here I introduce you to custom properties, that are known as variables too. Variables help you DRY (Don't Repeat Yourself) up your CSS. As an example they are helpful when you like to create color themes for your website or app...  Instead of copy and paste the same colors over and over again, you can place them in variables. You can just simply declare some variables (e.g., `:root { --bluish: #6199da; }`), use them in different places (e.g., `.heading { color: var(--bluish); } .card { background-color: var(--bluish); }`), and then simply re-declare them in different theme related selectors (e.g., `.theme-night { --bluish: #534c7e; }`). Now when you use the theme selector in your webpages for an element (e.g., you can add the theme CSS class to the `<body>` element: `<body class="theme-night">`), all the element's descending children that have already used the variable in their styles, now use the new overridden value of the variable.
 
 We can create variables with local or global scope. Global variables can be accessed/used through the entire document, while local variables can be used only inside the selector where it is declared.
@@ -1236,7 +1253,7 @@ The syntax of the `var()` function: `var(--name, value)`
 
 
 
-# Import
+## Import
 The `@import` rule allows you to import a style sheet into another style sheet. The `@import` rule must be at the top of the document. In large projects you need to separate your stylesheets and organize your files for better folder structure and easier future upgrades. e.g., you can put your webpages' header related styles in one file, and your footer related styles in another one, and then import both of those files into the `main.css` file that is going to be included as a reference inside your HTML pages.
 
 The syntax of `@import` rule: `@import url|string list-of-mediaqueries;`  
@@ -1297,7 +1314,7 @@ e.g., `@import "header.css";` or `@import url("header.css");`
 
 
 
-# Tips & Tricks
+## Tips & Tricks
 Ok cool! Now that we've learned almost all of the CSS basics, let's learn some useful tips & tricks that may come in handy when you're designing a real webpage :dancer:
 
 ```html
@@ -1361,8 +1378,8 @@ Ok cool! Now that we've learned almost all of the CSS basics, let's learn some u
       browser window. By absolute positioning, the element is positioned
       relative to its first positioned (not static) ancestor element.
 
-      As you can see in our example here, the .b element's container is the .box
-      element. And .box is positioned by relative... So when .b which is the
+      As you can see in our example here, the .c element's container is the .box
+      element. And .box is positioned by relative... So when .c which is the
       .box child, gets absolute position, it acts just like a fixed positioned
       element, but not relative to the browser window! It is relatively
       positioned to the .box element.
@@ -1676,7 +1693,7 @@ Ok cool! Now that we've learned almost all of the CSS basics, let's learn some u
 
 
 
-# Scalable & Modular Architecture for CSS (SMACSS) Methodology
+## Scalable & Modular Architecture for CSS (SMACSS) Methodology
 Alright, you have learnt almost everything about the CSS basics! Now is the time to go a little bit deeper and take a look at some more advanced topics such as the SMACSS methodology! It helps us write better CSS :partying_face:
 
 **SMACSS (pronounced "smacks") is a style guide that attempts to document a consistent approach to site/app development when using CSS**! It helps us better structure our CSS files in small or huge project, change our mindset to be more Object-oriented design (OOD) like, and build our projects in a way to be more recognizable even if we take a look at them after a long period of time.
@@ -1684,7 +1701,7 @@ Alright, you have learnt almost everything about the CSS basics! Now is the time
 Here I'm not going too deep into SMACSS! I just try to quickly mention some of its most important suggestions and best practices that most of the projects take into considerations. So if you like to learn more about SMACSS, [click here](http://smacss.com/), download its book, and start reading it!
 
 
-## Folder structure
+### Folder structure
 As I said earlier, as your project grows, you may need to use a CSS preprocessor (such as SASS) and need more and more stylesheets to style different stuff! Such as layouts, modules, states, and etc.
 
 We can use different folder structures to organize all of these stylesheets, there's no strict rule from God to tell us how we should organize our own project! So here we're just mentioning a sample folder structure that you can use for your project, while considering the  SMACSS methodology:
@@ -1707,7 +1724,7 @@ e.g., `.theme-dark { background-color: #333; }`
 - 'utilities' folder: Here we put some of the project's useful files that are going to be used in different other stylesheets. Files that include stylesheets' variables, mixins, or functions, such as '_variables.scss', '_mixins.scss', or '_functions.scss'. (These files can be created and imported in different stylesheets in SASS projects)
 
 
-## Best practices
+### Best practices
 - We should avoid styling elements or IDs most of the times, except in some rare situations like when we're styling general layout or default elements' designs (normalizing). Instead we should **style class selectors**. This approach helps our styles to be independent from the HTML structure. 
 
 - So generally we should avoid styling elements! But **if we like to style elements, then it's better to style a semantic element**! Such as the headings or p, NOT div or span elements.
@@ -1723,7 +1740,7 @@ e.g., `.theme-dark { background-color: #333; }`
 - **Avoid too much nested styles**, because it forces us to rely deeply on the HTML structure! **On the other hand, we don't always need to style everything using only classes**! Try to keep a balance between them... Depending on our project, we may not always like to give classes to every little element in order to style it! Instead we may like some elements to get your desired styles automatically! And that's why we can style elements themselves too. But remember to not go so deep relying on the HTML structure! Make sure to start styling a child from the nearest parent element.
 
 
-## Styling icons
+### Styling icons
 When we need icons or some repeatable images that we're going to use often in different parts of our webpages, we can make a sprite image (a collection of images put into a single image) and by CSS, show only some parts of the sprite image, each time we like to use it. Now, we may change our sprite image in the future and add more icons to it... We may also use icons in different sizes, colors, and etc. So icons should be independent from the HTML structure, and also greatly styled for future changes.
 
 So to achieve a better OOD icon module, we can create our sprite image, and then define some CSS classes like our sample here in the following:
@@ -1735,7 +1752,7 @@ So to achieve a better OOD icon module, we can create our sprite image, and then
 Now in HTML we can use an icon like this: `<i class="ico ico-16 ico-inbox"></i>`. In this way, we can have a single sprite image, have icons in different sizes, and be completely independent from the HTML structure.
 
 
-## Grouping properties
+### Grouping properties
 When defining variety of CSS properties for an element (such as border, background, font-size, and etc.), it doesn't matter you put what property first and what property last! But it's always good to be consistent. So as an example we can organize our CSS rules for an element in the following order:
 1. Box (positioning) related styles.
 2. Border related styles.
@@ -1746,7 +1763,7 @@ When defining variety of CSS properties for an element (such as border, backgrou
 
 
 
-# BEM Methodology
+## BEM Methodology
 There are plenty of methodologies out there aiming to reduce the CSS footprint, organize cooperation among programmers and maintain large CSS codebases. One of them is BEM! And I and many others love it :heart:
 
 Here I just quickly let you know what BEM means and how its naming convention makes CSS fun again! So if you like to learn more about BEM, [click here](https://en.bem.info/methodology/)
@@ -1757,7 +1774,7 @@ Here I just quickly let you know what BEM means and how its naming convention ma
 - Modifier: A flag on a block or element. Use them to change appearance or behavior. e.g., disabled, highlighted, checked, fixed, size big, color yellow.
 
 
-## Naming convention
+### Naming convention
 Having a standard naming convention can significantly increase development speed, debugging, and the implementation of new features in legacy code. The BEM approach does that all while keeping simple things simple.
 
 - **Block**: A block name follows the `block-name` scheme. e.g., `.menu`, `.lang-switcher`.
